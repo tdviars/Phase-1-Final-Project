@@ -1,0 +1,13 @@
+{
+    "url": "http://google.com",
+    "metadata": {
+    "status": 200,
+    "url": "http://google.com",
+    "name": "Google",
+    "description": "Search the world's information, including webpages, images, videos and more. Google has many special features to help you find exactly what you're looking for.",
+    "images": [
+    "https://www.google.com/logos/doodles/2022/celebrating-judith-leyster-6753651837109464.2-2x.png",
+    "http://www.google.com/logos/doodles/2022/celebrating-judith-leyster-6753651837109464.4-l.png"
+    ]
+    }
+}
