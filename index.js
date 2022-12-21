@@ -91,10 +91,21 @@ function newReptile(e){
         'quantity': e.target.quantity.value
     }
 
-    newReptileSubmit(reptile)
+    newReptileSubmit(newReptile)
     form.reset()
 }
 
 //Used POST method to send new reptiles to the database
-
+function newReptileSubmit(reptile){
+    fetch('http://localhost:3000/reptiles',{
+        method: 'POST',
+        headers: {
+            'Content-Type' : 'application/json',
+            Accept: 'application/json'
+        },
+        body: JSON.stringify(newReptile)
+    })
+    .then(resp => resp.json())
+    .then(reptile => addReptile(reptile))
+}
 
