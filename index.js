@@ -1,9 +1,11 @@
 //Use DomContentLoaded to fetch the reptiles after the DOM loads, it prevents any errors happening before the DOM loads
 //Makes a const for 'API'
+//Used DomContenetLoaded event listener
+
 document.addEventListener('DOMContentLoaded', fetchReptiles)
 const API = "http://localhost:3000/reptiles"
 
-//getting the reptiles using fetch
+//getting the reptiles using fetch GET
 
 function fetchReptiles(){
     fetch('API')
@@ -14,7 +16,15 @@ function fetchReptiles(){
 //using forEach to loop through the reptile data
 // then send each reptile through the addReptile function
 
-function data(reptile) {
+function data(reptileData){
+    reptileData.forEach(reptile => {
+        addReptile(reptile)
+    })
+}
+
+let boardContainer = document.querySelector('.board-container')
+
+function addReptile(reptile) {
     let card = document.createElement('div')
     card.className = 'card'
     let img = document.createElement('img')
@@ -39,6 +49,7 @@ function data(reptile) {
         buyBtn.disabled = true
         card.querySelector('.quant').textContent = 'Sorry, out of stock'
     }
+// Used submit event listener
 
 let buy = document.getElementById(`${reptile.id}`)
 buy.addEventListener('click', () => {
@@ -54,5 +65,36 @@ buy.addEventListener('click', () => {
 })
 }
 
+// PATCH method used to send the updated quantity of the reptiles
+function update(reptile){
+    fetch(`http://localhost:3000/reptiles/${board.id}`,{
+        method: 'PATCH',
+        headers: {
+             'Content-Type': 'application/json',
+             Accept: 'application.json'
+        },
+        body:JSON.stringify(reptile)
+    })
+}
+
+//Submit event listener
+
+let form = document.querySelector('form')
+form.addEventListener('submite', newReptile)
+
+function newReptile(e){
+    e.preventDefault()
+    let newReptile = {
+        'species': e.target.name.value,
+        'image': e.target.image.value,
+        'price': e.target.price.value,
+        'quantity': e.target.quantity.value
+    }
+
+    newReptileSubmit(reptile)
+    form.reset()
+}
+
+//Used POST method to send new reptiles to the database
 
 
