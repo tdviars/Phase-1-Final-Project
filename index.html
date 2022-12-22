@@ -1,11 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link rel="stylesheet" href="style.css" />
-    <title>Reptile Market</title>
-  </head>
-  <body>
-    <h1>Reptile Market</h1>
-    <script src="script.js"></script>
-  </body>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Reptile Market</title>
+        <link rel = 'stylesheet' href="styles.css">
+    </head>
+    <body>
+        <div class="header">
+            <h1 id = 'title'>Reptile Market</h1>
+        </div>
+        <div class="form-container">
+            <form class="add-reptile">
+                <input 
+                    type="text"
+                    name="name"
+                    value=""
+                    placeholder="Species Name"
+                    class="input-text"
+                >
+                <input 
+                    type="text" 
+                    name="image"
+                    value="" 
+                    placeholder="Image Link"
+                    class="input-text"
+                    >
+                <br />
+                <input
+                    type="text"
+                    name="price"
+                    value=""
+                    placeholder="Price Of The Species"
+                    class="input-text"
+                >
+                <input
+                    type="text"
+                    name="quantity"
+                    value=""
+                    placeholder="Enter The Quantity"
+                    class="input-text"
+                >
+                <br />
+                <input
+                    type="submit"
+                    name="submit"
+                    value="Add Reptile"
+                    class="submit"
+                    id="submit-button"
+                >
+            </form>
+        </div>
+        <div class="reptile-container">
+
+        </div>
+        <script type="text/javascript" src="index.js"></script>
+    </body>
 </html>
