@@ -3,12 +3,11 @@
 //Used DomContenetLoaded event listener
 
 document.addEventListener('DOMContentLoaded', fetchReptiles)
-const API = "http://localhost:3000/reptiles"
 
 //getting the reptiles using fetch GET
 
 function fetchReptiles(){
-    fetch('API')
+    fetch('http://localhost:3000/reptiles')
     .then(res => res.json())
     .then(reptileData => data(reptileData))
 }
@@ -22,7 +21,7 @@ function data(reptileData){
     })
 }
 
-let boardContainer = document.querySelector('.board-container')
+let reptileContainer = document.querySelector('.reptile-container')
 
 function addReptile(reptile) {
     let card = document.createElement('div')
@@ -32,34 +31,34 @@ function addReptile(reptile) {
     img.className = 'reptile-img'
     let species = document.createElement('div')
     species.textContent = species.brand
-    brand.className = 'reptile-info'
+    species.className = 'reptile-info'
     let price = document.createElement('div')
     price.textContent = reptile.price
     price.className = 'reptile-info'
     let quantity = document.createElement('div')
-    quantity.textContent = 'Quantity: ${reptile.quantity}'
+    quantity.textContent = `Quantity: ${reptile.quantity}`
     quantity.className = 'quant'
     let buyBtn = document.createElement('button')
-    buyBtn.textContent = 'Buy Now'
+    buyBtn.textContent = 'Buy'
     buyBtn.id = reptile.id
     buyBtn.className = 'buy-btn'
     card.append(img, species, price, quantity, buyBtn)
-    boardContainer.append(card)
+    reptileContainer.append(card)
     if(reptile.quantity === 0){
         buyBtn.disabled = true
-        card.querySelector('.quant').textContent = 'Sorry, out of stock'
+        card.querySelector('.quant').textContent = 'Sorry out of stock'
     }
 // Used submit event listener
 
 let buy = document.getElementById(`${reptile.id}`)
 buy.addEventListener('click', () => {
-    board.quantity -= 1
-    if (board.quantity === 0){
-        card.querySelector('.quant').textContent = 'Sorry, out of stock'
+    reptile.quantity -= 1
+    if (reptile.quantity === 0){
+        card.querySelector('.quant').textContent = 'Sorry out of stock'
         buyBtn.disabled = true
         update(reptile)
     }else{
-        card.querySelector('quant').textContent = `Quantity: ${board.quantity}`
+        card.querySelector('.quant').textContent = `Quantity: ${reptile.quantity}`
         update(reptile)
     }
 })
@@ -67,7 +66,7 @@ buy.addEventListener('click', () => {
 
 // PATCH method used to send the updated quantity of the reptiles
 function update(reptile){
-    fetch(`http://localhost:3000/reptiles/${board.id}`,{
+    fetch(`http://localhost:3000/reptiles/${reptile.id}`,{
         method: 'PATCH',
         headers: {
              'Content-Type': 'application/json',
@@ -80,7 +79,7 @@ function update(reptile){
 //Submit event listener
 
 let form = document.querySelector('form')
-form.addEventListener('submite', newReptile)
+form.addEventListener('submit', newReptile)
 
 function newReptile(e){
     e.preventDefault()
@@ -96,7 +95,7 @@ function newReptile(e){
 }
 
 //Used POST method to send new reptiles to the database
-function newReptileSubmit(reptile){
+function newReptileSubmit(newReptile){
     fetch('http://localhost:3000/reptiles',{
         method: 'POST',
         headers: {
@@ -108,4 +107,7 @@ function newReptileSubmit(reptile){
     .then(resp => resp.json())
     .then(reptile => addReptile(reptile))
 }
+
+
+
 
