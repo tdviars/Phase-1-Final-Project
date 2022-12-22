@@ -27,10 +27,10 @@ function addReptile(reptile) {
     let card = document.createElement('div')
     card.className = 'card'
     let img = document.createElement('img')
-    img.src = 'reptile.img'
+    img.src = reptile.image
     img.className = 'reptile-img'
     let species = document.createElement('div')
-    species.textContent = species.brand
+    species.textContent = reptile.species
     species.className = 'reptile-info'
     let price = document.createElement('div')
     price.textContent = reptile.price
@@ -41,7 +41,7 @@ function addReptile(reptile) {
     let buyBtn = document.createElement('button')
     buyBtn.textContent = 'Buy'
     buyBtn.id = reptile.id
-    buyBtn.className = 'buy-btn'
+    buyBtn.className = 'buyBtn'
     card.append(img, species, price, quantity, buyBtn)
     reptileContainer.append(card)
     if(reptile.quantity === 0){
@@ -65,6 +65,7 @@ buy.addEventListener('click', () => {
 }
 
 // PATCH method used to send the updated quantity of the reptiles
+
 function update(reptile){
     fetch(`http://localhost:3000/reptiles/${reptile.id}`,{
         method: 'PATCH',
@@ -95,6 +96,7 @@ function newReptile(e){
 }
 
 //Used POST method to send new reptiles to the database
+
 function newReptileSubmit(newReptile){
     fetch('http://localhost:3000/reptiles',{
         method: 'POST',
