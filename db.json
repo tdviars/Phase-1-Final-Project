@@ -1,0 +1,39 @@
+{
+  "reptiles": [
+    {
+      "species": "Snake",
+      "image": "https://images.theconversation.com/files/399366/original/file-20210507-23-7ectsj.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop.png",
+      "price": "800",
+      "quantity": 0,
+      "id": 1
+    },
+    {
+      "species": "Bearded Dragon",
+      "image": "http://cdn.shopify.com/s/files/1/1771/4463/products/1_1c795056-4368-4659-a520-33c706502044_grande.jpg?v=1490722020",
+      "price": "800",
+      "quantity": 0,
+      "id": 2
+    },
+    {
+      "species": "Bearded Dragon",
+      "image": "http://cdn.shopify.com/s/files/1/1771/4463/products/1_1c795056-4368-4659-a520-33c706502044_grande.jpg?v=1490722020",
+      "price": "800",
+      "quantity": 0,
+      "id": 3
+    },
+    {
+      "species": "Bearded Dragon",
+      "image": "http://cdn.shopify.com/s/files/1/1771/4463/products/1_1c795056-4368-4659-a520-33c706502044_grande.jpg?v=1490722020",
+      "price": "800",
+      "quantity": 0,
+      "id": 4
+    },
+    {
+      "species": "Bearded Dragon",
+      "image": "images_theconversation_com-file-20210507-23-7ectsj.png",
+      "price": "500",
+      "quantity": "5",
+      "id": 5
+    }
+  ]
+}
